@@ -71,42 +71,6 @@ let celsiusLink=document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 
-function showTemperature (response){
-let temperature = Math.round(response.data.current.temp);
-let temperatureNow=document.querySelector("#current-temperature");
-temperatureNow.innerHTML= temperature;
-let temperatureIcon = document.querySelector("#icon");
-temperatureIcon.innerHTML = response.data.current.weather[0].main; 
-let humidity = document.querySelector("#humidity");
-humidity.innerHTML = `Humidity: ${response.data.current.humidity}`; 
-let uvi = document.querySelector("#uvi");
-uvi.innerHTML = `UV index: ${response.data.current.uvi}`;
-let windSpeed = document.querySelector("#wind-speed");
-windSpeed.innerHTML = `Wind speed: ${response.data.current.wind_speed} m/s `; 
-let pressure = document.querySelector("#pressure");
-pressure.innerHTML = `Pressure: ${response.data.current.pressure} mb`; 
-let weatherDescription = document.querySelector("#weather-description");
-weatherDescription.innerHTML = `Description: ${response.data.current.weather[0].description}`; 
-}
-
-function getPosition(position) {
-let latitude = position.coords.latitude;
-let longitude = position.coords.longitude;
-let apiKey="0bf415fad223659dfa14ad64cc2436b7";
-let units="metric";
-let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
-let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(showTemperature);
-}
-
-
-
-function findLocationTemperature(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition (getPosition);}
-
-let buttonLocation = document.querySelector("#button-location");
-buttonLocation.addEventListener("click", findLocationTemperature);
 
 
 

@@ -1,3 +1,12 @@
+
+.weather-app {
+    max-width: 600px;
+    max-height: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+}
 h1 {
     font-family: 'Dancing Script', cursive;
     text-align: center;
@@ -26,7 +35,7 @@ h1 {
 #button {
     position: relative;
     top: -62px;
-    left: 710px;
+    left: 454px;
     background-color: #CDE9FF;
     border-radius: 10px;
     padding: 3px 16px;
@@ -60,7 +69,7 @@ h1 {
 #city {
     padding-left: 254px;
     font-size: 4rem;
-    margin-left: 106px;
+    margin-left: -200px;
     font-family: 'Edu SA Beginner', cursive;
     color: rgb(75, 143, 252);
 
@@ -68,7 +77,7 @@ h1 {
 
 #current-date {
     padding-left: 15px;
-    font-size: 2rem;
+    font-size: 20px;
     margin-left: 28px;
     padding-top: 36px;
 
@@ -76,7 +85,7 @@ h1 {
 
 #icon {
 
-    font-size: 42px;
+    font-size: 28px;
 }
 
 .col-sm-4 {
@@ -100,13 +109,3 @@ h1 {
     background-color: #fff;
 }
 
-
-
-img {
-    display: block;
-    margin: 0 auto;
-    width: 400px;
-    position: relative;
-    right: -365px;
-    top: -557px;
-}
