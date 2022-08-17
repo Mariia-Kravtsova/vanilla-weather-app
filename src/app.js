@@ -21,7 +21,48 @@ let now = new Date();
 let h2=document.querySelector("#current-date");
 h2.innerHTML = formatDate(now);
 
-function showInsertedCityTemperature (response){
+function displayForecast(response) {
+    console.log(response.data.daily);
+    let forecastElement=document.querySelector("#forecast");
+     let forecastHTML = `<div class="row">`;
+let days = ["Thu", "Fri", "Sat", "Sun"];
+days.forEach(function(day) {
+      forecastHTML = forecastHTML + `
+    
+        <div class="col-2">
+          <div class="weather-forecast-date">${day}</div>
+          
+          <img
+          src="http://openweathermap.org/img/wn/10d@2x.png"
+          alt="light rain with sun"
+          width="55"
+          />
+          <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-temperature-max">
+              18° </span>
+             <span class="weather-forecast-temperature-min">
+              12°
+            </span>
+          </div>
+       
+      </div>`;
+
+})
+      forecastHTML=forecastHTML +'</div>';
+    forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+
+let apiKey="0bf415fad223659dfa14ad64cc2436b7";
+let units="metric";
+let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
+let apiUrl = `${apiEndpoint}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(displayForecast);
+
+}
+
+ function showInsertedCityTemperature (response){
   document.querySelector("#city").innerHTML=response.data.name;
 document.querySelector("#current-temperature").innerHTML = Math.round(response.data.main.temp);
 document.querySelector("#icon").innerHTML = response.data.weather[0].icon; 
@@ -29,6 +70,9 @@ document.querySelector("#humidity").innerHTML =`Humidity: ${response.data.main.h
 document.querySelector("#wind-speed").innerHTML =`Wind speed: ${response.data.wind.speed} m/s `; 
 document.querySelector("#pressure").innerHTML =`Pressure: ${response.data.main.pressure} mb`; 
 document.querySelector("#weather-description").innerHTML = `Description: ${response.data.weather[0].description}`; 
+
+getForecast(response.data.coord);
+
 }
 
 function search(city) {
