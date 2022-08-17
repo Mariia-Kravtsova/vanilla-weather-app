@@ -108,4 +108,26 @@ h1 {
     font-size: 22px;
     background-color: #fff;
 }
-
+.coders-name {
+    text-decoration:none;
+    color: black;
+}
+.coders-name:hover {
+    text-decoration: none;
+    cursor: auto;
+}
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+}
+.weather-forecast-date {
+    font-size: 19px;
+    color: black;
+    opacity: 0.5;
+}
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+}
+.weather-forecast-temperatures {
+    font-size: 19px;
+}

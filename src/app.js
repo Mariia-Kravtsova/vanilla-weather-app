@@ -71,6 +71,3 @@ let celsiusLink=document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 
-
-
-
